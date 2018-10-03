@@ -2,7 +2,7 @@
 <?php
     function ft_split($string)
     {
-        $full = preg_split('/\s+/', $string);
+        $full = preg_split('/\s+/', trim($string));
         return($full);
     }
     $arr = ft_split($argv[1]);
