@@ -1,8 +1,6 @@
 #!/usr/bin/php
 <?php
-$exes = "X";
-$i = 0;
-while($i++ < 1000)
-    echo $exes;
+for($i = 1;$i<1000;$i++)
+    echo "X";
 echo "\n";
 ?>

@@ -11,7 +11,6 @@ while(1)
     }
     if(is_numeric($f))
     {
-        //$f = intval($f);
         if($f % 2 == 0)
             echo "The number ".$f." is even";
         else

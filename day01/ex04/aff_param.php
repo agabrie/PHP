@@ -1,7 +1,5 @@
 #!/usr/bin/php
 <?php
-    foreach($argv as $word)
-    {
-        echo $word."\n";
-    }
+    for($args = 1;$args < $argc;$args++)
+        echo $argv[$args]."\n";
 ?>
