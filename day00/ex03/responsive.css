@@ -1,0 +1,127 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   responsive.css                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/02 17:32:39 by agabrie           #+#    #+#             */
+/*   Updated: 2018/10/02 17:48:01 by agabrie          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+body
+{
+    background: radial-gradient(powderblue, black);
+    
+}
+img
+{
+	border: 5px double black;
+}
+img:hover
+{
+	border: 5px double white;
+}
+a
+{
+	color:black;
+}
+a:hover
+{
+	color:white;
+}
+.centrd
+{
+    text-align:center;
+}
+.non
+{
+	background-color: grey;
+}
+.metal
+{
+	background-color: darkgreen;
+}
+.noble
+{
+	background-color: steelblue;
+}
+
+.alkali
+{
+	background-color: peru;
+}
+.loid
+{
+	background-color: limegreen;
+}
+.lanth
+{
+	background-color: purple;
+}
+.earth
+{
+	background-color: darkred;
+}
+.halogen
+{
+	background-color: turquoise;
+}
+.act
+{
+	background-color: palevioletred;
+}
+.trans
+{
+	background-color: goldenrod;
+}
+.container
+{
+    width:auto;
+    height:auto;
+    border: 5px double white;
+	padding:2px;
+	margin: 2px;
+	
+    text-align:center;
+}
+.containers
+{
+	width:100vw;
+	height:auto;
+	border: 5px double black;
+	border-radius: 1vw; 
+	text-align: center;
+}
+.containers:hover
+{
+	background-color: black;
+	color: white;
+    border: 5px double white;
+}
+.empty
+{
+	width:100vw;
+	height:8vh;
+	color : white;
+	text-align: center;
+	font-size:0.75vw;
+}
+anum
+{
+	font-size:1vh;
+	margin-left:5%;
+	float:left;
+}
+aweight
+{
+	font-size:1vh;
+	margin-right:5%;
+	float:right;
+}
+asymbol
+{
+	font-size:3vh;
+	font-weight:bold;
+}
