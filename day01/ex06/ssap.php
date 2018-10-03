@@ -3,19 +3,25 @@
     function ft_split($string)
     {
         $full = preg_split('/\s+/', $string);
-        sort($full);
         return($full);
     }
-    $i = 0;
-    for($num = 1; $num < $argc; $num++)
+
+    function ssapnosort($av, $ac)
     {
-        $stuff = ft_split($argv[$num]);
-        foreach($stuff as $things)
+        $i = 0;
+        for($num = 1; $num < $ac; $num++)
         {
-            $arr[$i] = $things;
-            $i++;
+            $stuff = ft_split($av[$num]);
+            foreach($stuff as $things)
+            {
+                $arr[$i] = $things;
+                $i++;
+            }
         }
+        return ($arr);
     }
+
+    $arr = ssapnosort($argv, $argc);
     sort($arr);
     foreach($arr as $elem)
         echo $elem."\n";
