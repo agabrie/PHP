@@ -15,6 +15,7 @@
             $full[$x] = $full[$x].$char;
             
         }
+        /*$full = preg_split('/\s/', $string);*/
         sort($full);
         return($full);
     }
