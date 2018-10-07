@@ -22,6 +22,7 @@
 	}
 	$info["login"] = $_POST["login"];
 	$info["passwd"] = hash("sha1",$_POST["passwd"]);
+	//$info["passwd"] = $_POST["passwd"];
 	$array[] = $info;
 	file_put_contents($pwfile, serialize($array));
 	echo "OK\n";
