@@ -1,7 +1,7 @@
 <?php
 	$itemdir = "itemsdir";
 	$itemfile = $itemdir."/items";
-	if($_POST["submit"] === "OK")
+	if($_POST["submit"] === "OK" && $_POST["id"] !== "" && $_POST["img"] !== "" && $_POST["desc"] !== ""&& $_POST["type"] !== ""&& $_POST["cat"] !== ""&& $_POST["price"] !== ""&& $_POST["img"] !== "amount")
 	{
 		if(!file_exists($itemdir))
 			mkdir($itemdir);
@@ -21,7 +21,7 @@
 		$info["img"] = $_POST["img"];
 		$info["desc"] = $_POST["desc"];
 		$info["type"] = $_POST["type"];
-		$info["cat"] = $_POST["cat"];
+		$info["color"] = $_POST["color"];
 		$info["price"] = $_POST["price"];
 		$info["amount"] = $_POST["amount"];
 		$array[] = $info;
@@ -36,7 +36,7 @@
 		Image:<br><input type="text" name="img"><br>
 		Description:<br><input type="text" name="desc"><br>
 		Type:<br><input type="text" name="type"><br>
-		Category:<br><input type="text" name="cat"><br>
+		Color:<br><input type="text" name="color"><br>
 		Price:<br><input type="text" name="price"><br>
 		Amount:<br><input type="text" name="amount"><br>
 		<input type="submit" name="submit" value="OK">
