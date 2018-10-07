@@ -3,10 +3,16 @@
 	session_start();
 	if($_GET["submit"] === "OK")
 	{
+		$cartdir = "cartdir";
+		$cartfile = $itemdir."/cart";
+		if(!file_exists($cartdir))
+			mkdir($cartdir);
 		//echo $_GET["login"]."   ".$_GET["passwd"]."<br>";
+		file_put_contents($cartfile, "");
 		if(auth($_GET["login"],$_GET["passwd"]))
 		{
 			$_SESSION["loggued_on_user"] = $_GET["login"];
+			file_put_contents();
 			echo "OK\n";
 			return ;
 		}
