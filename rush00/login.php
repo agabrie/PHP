@@ -4,7 +4,7 @@
 	if($_GET["submit"] === "OK")
 	{
 		$cartdir = "cartdir";
-		$cartfile = $itemdir."/cart";
+		$cartfile = $cartdir."/cart";
 		if(!file_exists($cartdir))
 			mkdir($cartdir);
 		//echo $_GET["login"]."   ".$_GET["passwd"]."<br>";

@@ -4,7 +4,7 @@
 		$itemdir = "itemsdir";
 		$itemfile = $itemdir."/items";
 		$cartdir = "cartdir";
-		$cartfile = $itemdir."/cart";
+		$cartfile = $cartdir."/cart";
 		if(file_exists($itemfile) && file_exists($cartfile))
 		{
 			$array = unserialize(file_get_contents($itemfile));
