@@ -1,6 +1,7 @@
 <?php 
 	include("adminauth.php");
 	session_start();
+	
 	if($_GET["submit"] === "OK")
 	{
 		$cartdir = "cartdir";
@@ -11,11 +12,11 @@
 		file_put_contents($cartfile, "");
 		if(auth($_GET["login"],$_GET["passwd"]))
 		{
-			$_SESSION["loggued_on_user"] = $_GET["login"];
+			$_SESSION["loggued_on_admin"] = $_GET["login"];
 			file_put_contents();
 			header("location:homepage.html");
 		}
-		$_SESSION["loggued_on_user"] = "";
+		$_SESSION["loggued_on_admin"] = "";
 		echo "ERROR\n";
 		return ;
 	}
