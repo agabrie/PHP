@@ -31,7 +31,11 @@ class Color
 		if(Color::$verbose)
 			echo ($this->__toString()." constructed.".PHP_EOL);
 	}
-
+	function __destruct()
+	{
+		if(Color::$verbose)
+			echo ($this->__toString()." destructed.".PHP_EOL);
+	}
 	function setColor($red, $green, $blue)
 	{
 		$this->red = $red;
@@ -67,12 +71,12 @@ class Color
 
 	function __toString()
 	{
-		return ("Color( red:	".$this->red.", green:	".$this->green.", blue:	".$this->blue.")");
+		return (sprintf("Color( red:%5d, green:%5d, blue:%5d)", $this->red,$this->green,$this->blue));
 	}
 }
-Color::$verbose = True;
+/*Color::$verbose = True;
 
 $color = new Color(array( "red" => 0xff, 'green' => 0   , 'blue' => 0    ) );
 echo "OK\n";
-print($color     . PHP_EOL );
+print($color     . PHP_EOL );*/
 ?>
