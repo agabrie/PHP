@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+$doc = include("Color.doc.txt");
 class Color
 {
 	private $red = 0;
@@ -35,6 +36,10 @@ class Color
 	{
 		if(Color::$verbose)
 			echo ($this->__toString()." destructed.".PHP_EOL);
+	}
+	public static function doc()
+	{
+		return $doc.PHP_EOL;
 	}
 	function setColor($red, $green, $blue)
 	{
