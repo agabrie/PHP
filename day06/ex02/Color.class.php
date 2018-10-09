@@ -75,7 +75,7 @@ class Color
 
 	function __toString()
 	{
-		return (sprintf("Color( red:%.f, green:%5d, blue:%5d)", $this->red,$this->green,$this->blue));
+		return (sprintf("Color( red:%5d, green:%5d, blue:%5d )", $this->red,$this->green,$this->blue));
 	}
 }
 /*Color::$verbose = True;

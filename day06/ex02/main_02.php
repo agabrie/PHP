@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 /* ************************************************************************** */
 /*                                                                            */
@@ -38,7 +39,9 @@ Vertex::$verbose = False;
 
 $orig2 = new Vertex( array( 'x' => 23.87, 'y' => -37.95, 'z' => 78.34 ) );
 $dest2 = new Vertex( array( 'x' => -12.34, 'y' => 23.45, 'z' => -34.56 ) );
+//Vertex::$verbose = True;
 $vtc2  = new Vector( array( 'orig' => $orig2, 'dest' => $dest2 ) );
+//Vertex::$verbose = False;
 
 print( 'Magnitude is ' . $vtc2->magnitude() . PHP_EOL );
 
