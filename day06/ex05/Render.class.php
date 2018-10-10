@@ -79,7 +79,19 @@
 		public function __destruct()
 		{
 			if(Render::$verbose)
-				echo "STuff";
+				echo "Render instance destructed".PHP_EOL;
 		}
+		public static function doc()
+        {
+            echo file_get_contents("Render.doc.txt").PHP_EOL;
+        }
+        public function __toString()
+        {
+            return(sprintf( "Render ( ".PHP_EOL.
+                            "width: %d".PHP_EOL.
+                            "height: %d".PHP_EOL.
+                            "Name: %s".PHP_EOL.
+                            " )", $this->_width, $this->_height, $this->_filename));
+        }
 	}
 ?>
