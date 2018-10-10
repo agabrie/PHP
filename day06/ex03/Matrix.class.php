@@ -31,10 +31,10 @@ class Matrix
 		switch($this->_preset)
 		{
 			case Matrix::TRANSLATION :
-				$this->vtc = $matrix["vtc"];
-				$this->_matrix[0][3] = $this->vtc->getX();
-				$this->_matrix[1][3] = $this->vtc->getY();
-				$this->_matrix[2][3] = $this->vtc->getZ();
+				$this->_vtc = $matrix["vtc"];
+				$this->_matrix[0][3] = $this->_vtc->getX();
+				$this->_matrix[1][3] = $this->_vtc->getY();
+				$this->_matrix[2][3] = $this->_vtc->getZ();
 				break;
 			case Matrix::SCALE :
 				$this->_scale = $matrix["scale"];
@@ -84,7 +84,8 @@ class Matrix
 	}
 	function	__destruct()
 	{
-		echo "Matrix instance destructed".PHP_EOL;
+		if	(Matrix::$verbose)
+			echo "Matrix instance destructed".PHP_EOL;
 	}
 	function	getPreset()
 	{
