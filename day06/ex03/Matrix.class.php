@@ -1,5 +1,7 @@
 #!/usr/bin/php
 <?php
+require_once '../ex01/Vertex.class.php';
+require_once '../ex02/Vector.class.php';
 class Matrix
 {
 	const IDENTITY		= "IDENTITY";
@@ -71,6 +73,7 @@ class Matrix
 				$this->_matrix[2][2] = ($this->_near + $this->_far)/($this->_near - $this->_far);
 				$this->_matrix[3][2] = -1;
 				$this->_matrix[2][3] = 2*($this->_near * $this->_far)/($this->_near - $this->_far);
+				$this->_matrix[3][3] = 0;
 				break;
 			default :
 				
@@ -127,7 +130,7 @@ class Matrix
 	}
 	public function __toString()
 	{
-		return(sprintf(	"M | vtcX | vtcY | vtcZ | vtx0".PHP_EOL.
+		return(sprintf(	"M | vtcX | vtcY | vtcZ | vtxO".PHP_EOL.
 						"-----------------------------".PHP_EOL.
 						"x | %.2f | %.2f | %.2f | %.2f".PHP_EOL.
 						"y | %.2f | %.2f | %.2f | %.2f".PHP_EOL.

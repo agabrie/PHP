@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-	require_once "Color.class.php";
+	require_once '../ex00/Color.class.php';
 	class Vertex
 	{
 		private $_color;
@@ -13,9 +13,9 @@
 		{
 			$this->_color = new Color(array("rgb"=>0xffffff));
 			
-				$this->_x = $vertex["x"];
-				$this->_y = $vertex["y"];
-				$this->_z = $vertex["z"];
+			$this->_x = $vertex["x"];
+			$this->_y = $vertex["y"];
+			$this->_z = $vertex["z"];
 			if(array_key_exists("w", $vertex))
 			{
 				$this->_w = $vertex["w"];
@@ -26,14 +26,14 @@
 			}
 			if(Vertex::$verbose)
 			{
-				echo ($this." constructed.".PHP_EOL);
+				echo ($this." constructed".PHP_EOL);
 			}
 		}
 		function	__destruct()
 		{
 			if(Vertex::$verbose)
 			{
-				echo ($this." destructed.".PHP_EOL);
+				echo ($this." destructed".PHP_EOL);
 			}
 		}
 		public static function doc()
@@ -83,6 +83,15 @@
 			$this->_color = $color;
 		}
 
+		public function	sub($vert)
+		{
+			$x = $this->_x - $vert->getX();
+			$y = $this->_y - $vert->getY();
+			$z = $this->_z - $vert->getZ();
+			$w = $this->_w - $vert->getW();
+			$color = $this->_color->sub($vert->_color);
+			return(new Vertex(array("x"=>$x,"y"=>$y,"z"=>$z,"w"=>$w,"color"=>$color)));
+		}
 		public function __toString()
 		{
 			$string = sprintf("Vertex( x: %.2f, y: %.2f, z:%.2f, w:%.2f )",$this->_x, $this->_y,$this->_z, $this->_w);

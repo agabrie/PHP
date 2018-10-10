@@ -2,15 +2,15 @@
 <?php
 class Color
 {
-	private $red = 0;
-	private $blue = 0;
-	private $green = 0;
+	private $red	= 0;
+	private $blue	= 0;
+	private $green	= 0;
 	public	static $verbose = false;
 	
 	function __construct(array $rgb)
 	{
 		
-		if($rgb["rgb"] !== "")
+		if(array_key_exists("rgb", $rgb))
 		{
 			$this->red = (($rgb["rgb"]>>16) & 0xff);
 			$this->green = (($rgb["rgb"]>>8) & 0xff);
@@ -75,7 +75,7 @@ class Color
 
 	function __toString()
 	{
-		return (sprintf("Color( red:%.f, green:%5d, blue:%5d)", $this->red,$this->green,$this->blue));
+		return (sprintf("Color( red:%4d, green:%4d, blue:%4d )", $this->red,$this->green,$this->blue));
 	}
 }
 /*Color::$verbose = True;

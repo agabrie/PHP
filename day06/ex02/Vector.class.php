@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+require_once '../ex01/Vertex.class.php';
 class Vector
 {
 	//private $_mag;
@@ -9,29 +10,28 @@ class Vector
 	private $_w = 0.0;
 
 	private $_dest;
-	private $orig;
+	private $_orig;
 	public static $verbose =false;
 	public function __construct(array $vector)
 	{
 		//$this->_mag = new Vertex(array("x"=>0.0, "y"=>0.0, "z"=>0.0, "w"=>0.0));
 		
 		$this->_dest = $vector["dest"];
-		if(array_key_exists("orig", $vector))
-			$this->_orig = $vector["orig"];
-		else
-			$this->_orig = new Vertex(array("x"=>0.0, "y"=>0.0, "z"=>0.0));
-		$this->_x = $this->_dest->getX() - $this->_orig->getX();
-		$this->_y = $this->_dest->getY() - $this->_orig->getY();
-		$this->_z = $this->_dest->getZ() - $this->_orig->getZ();
+		if(!array_key_exists("orig", $vector))
+			$vector["orig"] = new Vertex(array("x"=>0.0, "y"=>0.0, "z"=>0.0));
+		//$this->_orig =  $vector["orig"];//new Vertex(array('x' => $vector['orig']->getX(), 'y' => $vector['orig']->getY(), 'z' => $vector['orig']->getZ()));
+		$this->_x = $this->_dest->getX() - $vector['orig']->getX();
+		$this->_y = $this->_dest->getY() - $vector['orig']->getY();
+		$this->_z = $this->_dest->getZ() -$vector['orig']->getZ();
 		if($vector["dest"]->getW())
-			$this->_w = $this->_dest->getW() - $this->_orig->getW();
+			$this->_w = $this->_dest->getW() - $vector['orig']->getW();
 		if(Vector::$verbose)
-			echo $this." constructed.".PHP_EOL;
+			echo $this." constructed".PHP_EOL;
 	}
 	public function __destruct()
 	{
 		if(Vector::$verbose)
-			echo $this." destructed.".PHP_EOL;
+			echo $this." destructed".PHP_EOL;
 	}
 	public function doc()
 	{
@@ -101,9 +101,10 @@ class Vector
 		$x = $this->getY()*$vector->getZ() - $vector->getY()*$this->getZ();
 		$y = $this->getX()*$vector->getZ() - $vector->getX()*$this->getZ();
 		$z = $this->getX()*$vector->getY() - $vector->getX()*$this->getY();
-		$vert = new Vertex(array("x"=>$x, "y"=>$y,"z"=>$z));
+		$vert = new Vertex(array("x"=>$x, "y"=>-$y,"z"=>$z));
 		return(new Vector(array("dest" => $vert)));
 	}
+	
 	public function __toString()
 	{
 		return(sprintf("Vector( x:%.2f, y:%.2f, z:%.2f, w:%.2f )", $this->getX(), $this->getY(), $this->getZ(), $this->getW()));

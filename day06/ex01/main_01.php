@@ -9,7 +9,7 @@
 /* ************************************************************************** */
 
 
-require_once '../ex01/Color.class.php';
+require_once '../ex00/Color.class.php';
 require_once '../ex01/Vertex.class.php';
 
 Color::$verbose = False;
