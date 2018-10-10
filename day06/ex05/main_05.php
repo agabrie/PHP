@@ -15,7 +15,7 @@ require_once '../ex03/Matrix.class.php';
 require_once '../ex04/Camera.class.php';
 require_once '../ex05/Render.class.php';
 
-
+Triangle::$verbose = True;
 function makeRepere() {
 	$red   = new Color( array( 'red' => 0xff, 'green' => 0   , 'blue' => 0    ) );
 	$green = new Color( array( 'red' => 0   , 'green' => 0xff, 'blue' => 0    ) );
@@ -82,17 +82,24 @@ $origin = $cam->watchVertex( $origin );
 
 
 $repere = makeRepere();
-$repere = $S->transformMesh( $repere );
-$repere = $cam->watchMesh( $repere );
+//$repere = $S->transformMesh( $repere );
+//$repere = $cam->watchMesh( $repere );
 $renderer->renderMesh( $repere, Render::EDGE );
-$renderer->renderVertex( $origin );
+//$renderer->renderVertex( $origin );
+/*$renderer->renderTriangle( $repere[0] ,RENDER::VERTEX);*/
+$red     = new Color( array( 'red' => 0xff, 'green' => 0   , 'blue' => 0    ) );
+$a = new Vertex( array( 'x' => 100, 'y' => 100, 'z' => 0, 'color' => $red ) );
+$b = new Vertex( array( 'x' => 30, 'y' => 30, 'z' => 0, 'color' => $red ) );
+$c = new Vertex( array( 'x' => 100, 'y' => 30, 'z' => 0, 'color' => $red ) );
+$tri = new Triangle($a, $b, $c);
+$renderer->renderTriangle($tri, RENDER::EDGE);
 
 
 $cube = makeColoredCube( 0.0, 0.0, 0.0, 1.0 );
 $M = $T->mult( $RX )->mult( $RY )->mult( $S );
-$cube = $M->transformMesh( $cube );
-$cube = $cam->watchMesh( $cube );
-$renderer->renderMesh( $cube, Render::RASTERIZE );
+//$cube = $M->transformMesh( $cube );
+//$cube = $cam->watchMesh( $cube );
+//$renderer->renderMesh( $cube, Render::RASTERIZE );
 
 
 $renderer->develop();

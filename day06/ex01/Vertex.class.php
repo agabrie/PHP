@@ -61,6 +61,19 @@
 		{
 			return($this->_color);
 		}
+		public function	getRed()
+		{
+			
+			return($this->_color->getRed());
+		}
+		public function	getGreen()
+		{
+			return($this->_color->getGreen());
+		}
+		public function	getBlue()
+		{
+			return($this->_color->getBlue());
+		}
 		// Mutators
 		public function setX($x)
 		{
@@ -91,6 +104,15 @@
 			$w = $this->_w - $vert->getW();
 			$color = $this->_color->sub($vert->_color);
 			return(new Vertex(array("x"=>$x,"y"=>$y,"z"=>$z,"w"=>$w,"color"=>$color)));
+		}
+		public function opposite()
+		{
+			$x = -$this->getX();
+			$y = -$this->getY();
+			$z = -$this->getZ();
+			$color = $this->getColor();
+			$vert = new Vertex(array("x"=>$x, "y"=>$y,"z"=>$z, "color"=>$color));
+			return($vert);
 		}
 		public function __toString()
 		{

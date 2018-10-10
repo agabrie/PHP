@@ -7,11 +7,11 @@
         private $_c;
         public static $verbose = false;
 
-        public function __construct($vertices)
+        public function __construct($a, $b, $c)
         {
-            $this->_a = $vertices["A"];
-            $this->_b = $vertices["B"];
-            $this->_c = $vertices["C"];
+            $this->_a = $a;
+            $this->_b = $b;
+            $this->_c = $c;
             if(Triangle::$verbose)
                 echo "Triangle instance constructed".PHP_EOL;
         }
@@ -32,6 +32,18 @@
                             "B: %s".PHP_EOL.
                             "C: %s".PHP_EOL.
                             " )", $this->_a, $this->_b, $this->_c));
+        }
+        public function getA()
+        {
+            return($this->_a);
+        }
+        public function getB()
+        {
+            return($this->_b);
+        }
+        public function getC()
+        {
+            return($this->_c);
         }
     }
 ?>

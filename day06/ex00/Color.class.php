@@ -56,7 +56,19 @@ class Color
 	}
 	function getColor()
 	{
-		return(Color($red, $green, $blue));
+		return(Color($this->red, $this->green, $this->blue));
+	}
+	function getRed()
+	{
+		return($this->red);
+	}
+	function getGreen()
+	{
+		return($this->green);
+	}
+	function getBlue()
+	{
+		return($this->blue);
 	}
 	function	sub(Color $rhs)
 	{
