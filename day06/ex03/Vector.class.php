@@ -104,6 +104,7 @@ class Vector
 		$vert = new Vertex(array("x"=>$x, "y"=>$y,"z"=>$z));
 		return(new Vector(array("dest" => $vert)));
 	}
+	
 	public function __toString()
 	{
 		return(sprintf("Vector( x:%.2f, y:%.2f, z:%.2f, w:%.2f )", $this->getX(), $this->getY(), $this->getZ(), $this->getW()));

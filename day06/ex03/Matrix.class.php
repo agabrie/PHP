@@ -116,6 +116,15 @@ class Matrix
 		}
 		return($ret);
 	}
+	public function transformVertex(Vertex $vert)
+	{
+		$x =  $vert->getX()*$this->_matrix[0][0] + $vert->getY()*$this->_matrix[0][1] + $vert->getZ()*$this->_matrix[0][2]+ $vert->getW()*$this->_matrix[0][3];
+		$y =  $vert->getX()*$this->_matrix[1][0] + $vert->getY()*$this->_matrix[1][1] + $vert->getZ()*$this->_matrix[1][2]+ $vert->getW()*$this->_matrix[1][3];
+		$z =  $vert->getX()*$this->_matrix[2][0] + $vert->getY()*$this->_matrix[2][1] + $vert->getZ()*$this->_matrix[2][2]+ $vert->getW()*$this->_matrix[2][3];
+		$w =  $vert->getX()*$this->_matrix[3][0] + $vert->getY()*$this->_matrix[3][1] + $vert->getZ()*$this->_matrix[3][2]+ $vert->getW()*$this->_matrix[3][3];
+		
+		return(new Vertex(array("x"=>$x, "y"=>$y, "z"=>$z, "w"=>$w)));
+	}
 	public function __toString()
 	{
 		return(sprintf(	"M | vtcX | vtcY | vtcZ | vtx0".PHP_EOL.
