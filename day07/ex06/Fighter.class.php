@@ -1,5 +1,5 @@
 <?php
-class Fighter
+abstract class Fighter
 {
 	private $div;
 
@@ -7,6 +7,7 @@ class Fighter
 	{
 		$this->div = $type;
 	}
+	abstract function fight($target);
 	public function getDiv()
 	{
 		return($this->div);
