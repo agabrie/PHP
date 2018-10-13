@@ -26,6 +26,10 @@ class Objects
 	{
 		return($this->coords->getX());
 	}
+	function	moveDown($amount)
+	{
+		$this->coords->setY($this->getY()+$amount);
+	}
 	function getY()
 	{
 		return($this->coords->getY());
