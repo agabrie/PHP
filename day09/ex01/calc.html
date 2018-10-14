@@ -11,9 +11,8 @@
 			#submit
 			{
 				padding: 6px 12px;
-				font-size: 12px;
+				font-size: 30px;
 				border-radius: 10% 10%;
-				margin-top:50%;
 				padding: 10px;
 				background: yellow;
 				text-align: center;
@@ -35,7 +34,7 @@
 			input, select
 			{
 				padding: 6px 12px;
-				font-size: 12px;
+				font-size: 30px;
 				margin-bottom: 15px;
 				background-color: #ffffff;
 				border: blue 1px solid;
@@ -52,21 +51,19 @@
 	<body>
 		<div class="base" style="text-align: center">
 			<form>
-					<input type="text" id="lefttxt" value="">
-					<br>
-						<select id="operator">
-							<option value="add">+</option>
-							<option value="sub">-</option>
-							<option value="mul">*</option>
-							<option value="div">/</option>
-							<option value="mod">%</option>
-						</select>
-						<br>
-						<input type="text" id="righttxt">
-						<br>
-						<span id="submit"onclick="calculate();">Try Me!</span>
-				
-				<!-- <span id="button" onclick="calculate()"> = <span> -->
+				<input type="text" id="lefttxt" value="">
+				<br>
+				<select id="operator">
+					<option value="add">+</option>
+					<option value="sub">-</option>
+					<option value="mul">*</option>
+					<option value="div">/</option>
+					<option value="mod">%</option>
+				</select>
+				<br>
+				<input type="text" id="righttxt">
+				<br>
+				<input type="submit" id="submit" onclick="calculate();" value="Try me!">
 			</form>
 		<div>
 			<script>
@@ -77,12 +74,14 @@
 
     				function timer()
 					{
-						window.alert("Please try me...");
+						window.alert("Please, use me...");
 					}
 				}
 				window.onload = init;
 				function	calculate()
 				{
+					if(document.getElementById("submit").value == "Try me!")
+					{
 					var lhs = document.getElementById("lefttxt");
 					var rhs = document.getElementById("righttxt");
 					var operations = document.getElementById("operator");
@@ -91,19 +90,24 @@
 					var num = doop(lhs.value, op.value, rhs.value);
 					switch(num)
 					{
-					case "NaN":
+						case "NaN":
+							window.alert("Error :(");
+							break;
+						case "Error":
+							window.alert(num);
+							break;
+						case "It’s over 9000!":
+							console.log(num);
+							window.alert(num);
+							break;
+						default:
+							window.alert(num);
+							break;
+					}
+					}
+					else
+					{
 						window.alert("Error :(");
-						break;
-					case "Error":
-						window.alert(num);
-						break;
-					case "It’s over 9000!":
-						console.log(num);
-						window.alert(num);
-						break;
-					default:
-						window.alert(num);
-						break;
 					}
 				}
 				function doop(lhs, op, rhs)
