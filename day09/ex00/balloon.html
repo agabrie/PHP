@@ -1,0 +1,54 @@
+<html>
+	<header>
+		<style>
+			#balloon
+			{
+				background: red;
+				height : 200px; 
+				width : 200px;
+				border-radius: 92%;
+				display: inline-block;
+			}
+		</style>
+	</header>
+	<body>
+		<div style="text-align:center">
+			<span id="balloon" onclick="grow();" onmouseout="shrink()"> </span>
+		</div>
+		<script>
+
+			function grow()
+			{
+				var balloon = document.getElementById("balloon");
+				var color = balloon.style.background;
+				var size = balloon.clientHeight;
+				balloon.style.background = getColor(color,0);
+				if(size + 10 > 420)
+					balloon.style.height = balloon.style.width = 200 + "px";
+				else
+					balloon.style.height = balloon.style.width = size + 10 + "px";
+			}
+			function shrink()
+			{
+				var balloon = document.getElementById("balloon");
+				var color = balloon.style.background;
+				var size = balloon.clientHeight;
+				balloon.style.background = getColor(color,1);
+				if(size - 5 < 200)
+					balloon.style.height = balloon.style.width = 200 + "px";
+				else
+					balloon.style.height = balloon.style.width = size - 5 + "px";
+			}
+
+			function getColor(color, dir)
+			{
+				switch(color)
+				{
+					case "green":	if(dir)return "red";return "blue";
+					case "blue":	if(dir)return "green";return "red";
+					default:		if(dir)return "blue";return "green";
+				}
+			}
+		</script>
+	</body>
+</html>

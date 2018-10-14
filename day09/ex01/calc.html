@@ -1,0 +1,128 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			.base
+			{
+				width:40%;
+				height:20%;
+				background:green;
+			}
+			#submit
+			{
+				padding: 6px 12px;
+				font-size: 12px;
+				border-radius: 10% 10%;
+				margin-top:50%;
+				padding: 10px;
+				background: yellow;
+				text-align: center;
+			}
+			#lefttxt
+			{
+				margin-top: 1%;
+				margin-left:20%;
+				float: left;
+				text-align:left;
+			}
+			#righttxt
+			{
+				margin-top:3%;
+				margin-right:20%;
+				float:right;
+				text-align:left;
+			}
+			input, select
+			{
+				padding: 6px 12px;
+				font-size: 12px;
+				margin-bottom: 15px;
+				background-color: #ffffff;
+				border: blue 1px solid;
+				border-radius: 10%;
+				text-align: center;
+			}
+			#operator
+			{
+				margin-top:2%;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="base" style="text-align: center">
+			<form>
+					<input type="text" id="lefttxt" value="">
+					<br>
+						<select id="operator">
+							<option value="add">+</option>
+							<option value="sub">-</option>
+							<option value="mul">*</option>
+							<option value="div">/</option>
+							<option value="mod">%</option>
+						</select>
+						<br>
+						<input type="text" id="righttxt">
+						<br>
+						<span id="submit"onclick="calculate();">Try Me!</span>
+				
+				<!-- <span id="button" onclick="calculate()"> = <span> -->
+			</form>
+		<div>
+			<script>
+				function init()
+				{
+    				var count = 30; // set secconds
+    				var counter = setInterval(timer, 1000 * count);
+
+    				function timer()
+					{
+						window.alert("Please try me...");
+					}
+				}
+				window.onload = init;
+				function	calculate()
+				{
+					var lhs = document.getElementById("lefttxt");
+					var rhs = document.getElementById("righttxt");
+					var operations = document.getElementById("operator");
+					var op = operations.options[operations.selectedIndex];
+
+					var num = doop(lhs.value, op.value, rhs.value);
+					switch(num)
+					{
+					case "NaN":
+						window.alert("Error :(");
+						break;
+					case "Error":
+						window.alert(num);
+						break;
+					case "It’s over 9000!":
+						console.log(num);
+						window.alert(num);
+						break;
+					default:
+						window.alert(num);
+						break;
+					}
+				}
+				function doop(lhs, op, rhs)
+				{
+					if(parseInt(lhs) < 0 || parseInt(rhs) < 0)
+						return("Error :(");
+					else
+					{
+						switch(op)
+						{
+							case "add":return ""+(parseInt(lhs) + parseInt(rhs));
+							case "sub":return ""+(parseInt(lhs) - parseInt(rhs));
+							case "mul":return ""+(parseInt(lhs) * parseInt(rhs));
+							case "div":if(parseInt(rhs) == 0)return "It\’s over 9000!";return ""+(parseInt(lhs) / parseInt(rhs));
+							case "mod":if(parseInt(rhs) == 0)return "It\’s over 9000!";return ""+(parseInt(lhs) % parseInt(rhs));
+							default: return "Error :(";
+						}
+					}
+				}
+			</script>
+	</body>
+</html>
